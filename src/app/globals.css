@@ -25,3 +25,114 @@ body {
     text-wrap: balance;
   }
 }
+
+
+
+.container{
+  box-shadow: 1px 1px 6px #268d4c;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 25px;  
+  margin-top: 40px;
+  width: 30%;
+}
+.h1-heedaing{
+  color: #0000ff;
+  font-size: 45px;
+  font-weight: bolder;
+  text-align: center;
+}
+.form{
+  /* border: 1px solid #2f00ff; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  width: 50%;
+  margin: 0 auto;
+}
+input{
+  border: 1px solid #268d4c;
+  padding: 2px;
+  padding-left: 8px;
+  border-radius: 10px;
+  transition: 0.7s;
+}
+input:focus{
+  border: 1px solid  #0000ff;
+  outline: 1px solid #0000ff;
+}
+label{
+  color: #268d4c;
+}
+.show-text{
+  color: #0000ff;
+  text-align: center;
+  font-size: 10px;
+}
+.resetPasswordtext{
+  color: red;
+  font-size: 11px;
+  text-align: center;
+  margin: 10px;
+}
+.error{
+  color: red;
+  font-size: 10px;
+  margin-top: 8px;
+  text-align: center;
+
+}
+.funct-btn{
+  border: 1px solid #268d4c;
+  /* background-color: #36bc67; */
+  color: #268d4c;
+  border-radius: 10px;
+  padding: 8px;
+  font-size: 11px;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-left: 52.5%;
+  margin-bottom: 10px;
+  transition: 0.4s;
+}
+.funct-btn:focus{
+  outline: 0.5px solid #0000ff;
+  border: 0.5px solid #0000ff;
+  color: #0000ff;
+}
+.funct-btn:hover{
+  box-shadow: 1px 1px 3px #000000;
+  background-color: #0000ff;
+  color: white;
+}
+
+
+
+
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 70%;
+  }
+  .div{
+    width: 100%;
+  }
+  .show-text{
+    font-size: 10px;
+  }
+  .funct-btn{
+    width: 37%;
+  }
+  .form{
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .funct-btn{
+    width: 48%;
+  }
+}
