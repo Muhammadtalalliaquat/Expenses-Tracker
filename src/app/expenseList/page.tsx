@@ -46,6 +46,7 @@ export default function expenseListData() {
       if (currentUser) {
         fetchExpnseRealTime(currentUser.uid);
         setUser(currentUser);
+        console.log(user)
       } else {
         setUser(null);
       }
