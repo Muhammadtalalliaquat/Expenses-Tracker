@@ -17,7 +17,7 @@ export default function Home() {
         showText={"Doest not have an account?"}
         loginSignupText={"Signup"}
         showMsg={"/signup"}
-        fogotPassword={"Send Reset Email"}
+        fogotPassword={"forgot Password"}
         /> 
     </>
   );
