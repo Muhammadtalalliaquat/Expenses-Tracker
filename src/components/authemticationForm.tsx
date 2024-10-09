@@ -62,7 +62,7 @@ export default function AuthForm({
     try {
       sendPasswordResetEmail(auth, email);
       setMessage("Password reset! Check your inbox.");
-      // setError(""); 
+      // setError("");
     } catch (error) {
       setMessage("");
       // setError("Failed to send password reset email. Please try again.");
@@ -72,81 +72,90 @@ export default function AuthForm({
 
   return (
     <>
-      <div className="main-container">
-        <div className="container">
-          <h1 className="h1-heedaing">{btnLabel}</h1>
-          {/* <br /> */}
+      <html data-theme={"light"}>
+        <body>
+          <div className="main-container">
+            <div className="container">
+              <h1 className="h1-heedaing">{btnLabel}</h1>
+              {/* <br /> */}
 
-          <form onSubmit={handleSubmit} className="form">
-            <label htmlFor="email">
-              Email:
-              <br />{" "}
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                required
-              />
-            </label>
+              <form onSubmit={handleSubmit} className="form">
+                <label htmlFor="email">
+                  Email:
+                  <br />{" "}
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                    required
+                  />
+                </label>
 
-            <br />
+                <br />
 
-            <label htmlFor="password">
-              Password:
-              <br />
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-                required
-              />
-            </label>
-            {errors.length > 0 && (
-                <ul className="error">
-                  {errors.map((error, index) => (
-                    <li key={index}>{error}</li>
-                  ))}
-                </ul>
-              )}
-            <span
-              style={{ color: "grey", margin: "5px" , fontSize: "11px", textAlign: "center" }}
-            >
-              {message}
-            </span>
-            <a
-              className="resetPasswordtext"
-              onClick={handleResetPassword}
-              href="#"
-            >
-              {" "}
-              {fogotPassword}
-            </a>
+                <label htmlFor="password">
+                  Password:
+                  <br />
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                    required
+                  />
+                </label>
+                {errors.length > 0 && (
+                  <ul className="error">
+                    {errors.map((error, index) => (
+                      <li key={index}>{error}</li>
+                    ))}
+                  </ul>
+                )}
+                <span
+                  style={{
+                    color: "grey",
+                    margin: "5px",
+                    fontSize: "11px",
+                    textAlign: "center",
+                  }}
+                >
+                  {message}
+                </span>
+                <a
+                  className="resetPasswordtext"
+                  onClick={handleResetPassword}
+                  href="#"
+                >
+                  {" "}
+                  {fogotPassword}
+                </a>
 
-            <p className="show-text">
-              {showText}{" "}
-              <a href="#" onClick={linkPush}>
-                {loginSignupText}
-              </a>
-            </p>
+                <p className="show-text">
+                  {showText}{" "}
+                  <a href="#" onClick={linkPush}>
+                    {loginSignupText}
+                  </a>
+                </p>
 
-            <button
-              type="submit"
-              className="funct-btn"
-              onClick={() => {
-                btnFunc(email, password);
-              }}
-            >
-              {btnLabel}
-            </button>
-          </form>
-        </div>
-      </div>
+                <button
+                  type="submit"
+                  className="funct-btn"
+                  onClick={() => {
+                    btnFunc(email, password);
+                  }}
+                >
+                  {btnLabel}
+                </button>
+              </form>
+            </div>
+          </div>
+        </body>
+      </html>
     </>
   );
 }

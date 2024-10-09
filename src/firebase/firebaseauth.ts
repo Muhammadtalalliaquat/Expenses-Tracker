@@ -23,7 +23,7 @@ export function SignupForm(email: string, password: string){
     // const errorCode = error.code;
     const errorMessage = error.message;
     console.error(errorMessage, 'invild email or password.');
-      // alert("invild email or password.")
+      alert("invild email or password.")
     // ..
   });
 }

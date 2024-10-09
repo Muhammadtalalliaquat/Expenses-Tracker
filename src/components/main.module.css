@@ -1,0 +1,95 @@
+
+.hearder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%; 
+    padding-top: 10px;
+    margin: 0 auto;
+}
+.btn_div{
+    display: flex;
+    gap: 6px;
+}
+.form{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.second_div{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    width: 16.5%;
+    margin: 0 auto;
+}
+.second_div>button{
+    margin-bottom: 10px;
+}
+.second_div>textarea{
+    /* border-radius: 10px; */
+    height: 40px;
+    color: #000000;
+    border: 1px solid #808080;
+    padding-left: 5px;
+    padding-top: 5px;
+    transition: 0.5s;
+}
+.second_div>textarea:focus{
+    outline: 1px solid blue;
+    border: none;
+}
+.second_div>select{
+    /* border-radius: 10px; */
+    height: 40px;
+    border: 1px solid #808080;
+    transition: 0.5s;
+}
+.second_div>select:focus{
+    outline: 1px solid blue;
+    border: none;
+}
+.form>label{
+    color: #808080;
+}
+.input_filed{
+    border: 1px solid #808080;
+    padding: 10px;
+    border-radius: 0%;
+}
+.btn{
+    width: 20%;
+}
+.h1{
+    font-size: 19px;
+    font-weight: bolder;
+}
+
+@media only screen and (max-width: 600px) {
+    .hearder{
+        display: flex;
+        width: 80%;
+        margin-top: 10px;
+        border-bottom: 2px solid black;
+        padding-bottom: 20px;
+    }
+    .second_div{
+        width: 70%;
+        margin-top: 40px;
+        display: flex;
+
+    }
+    .form{
+        display: flex;
+        width: 100%;
+        align-items: left;
+    }
+   
+    .input_filed{
+        margin-top: 10px;
+        width: 100%;
+    }
+}

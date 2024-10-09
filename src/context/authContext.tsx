@@ -9,13 +9,12 @@ import {createContext, ReactNode, useContext, useEffect, useState} from "react";
 type childrenType = {
     children: ReactNode;
 }
-
 type userType = {
     email: string | null;
     uid: string;
     emailVerified: boolean
 }
-
+ 
 type authContextType = {
     user: userType | null
 }

@@ -29,7 +29,8 @@ body {
 
 
 .container{
-  box-shadow: 1px 1px 6px #268d4c;
+  box-shadow: 1px 1px 12px #777777;
+  background-color: #fdfdfd;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -45,7 +46,6 @@ body {
   text-align: center;
 }
 .form{
-  /* border: 1px solid #2f00ff; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +87,6 @@ label{
 }
 .funct-btn{
   border: 1px solid #268d4c;
-  /* background-color: #36bc67; */
   color: #268d4c;
   border-radius: 10px;
   padding: 8px;
