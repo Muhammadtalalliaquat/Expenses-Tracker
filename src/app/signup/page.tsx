@@ -16,6 +16,7 @@ export default function Home() {
         showText={"Already have an account? "}
         loginSignupText={"Login"}
         showMsg={"/login"}
+        fogotPassword={""}
         /> 
     </>
   );
