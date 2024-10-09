@@ -46,6 +46,7 @@ export default function expenseListData() {
       if (currentUser) {
         fetchExpnseRealTime(currentUser.uid);
         setUser(currentUser);
+        console.log(user)
       } else {
         setUser(null);
       }
@@ -58,6 +59,7 @@ export default function expenseListData() {
         detchOnAuthSateListner();
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let readRealTimeListner: Unsubscribe;

@@ -53,6 +53,7 @@ export default function emailVerification(){
                 detchOnAuthSateListner();
               }   
             }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       } ,[]);
 
       let readRealTimeListner: Unsubscribe; 

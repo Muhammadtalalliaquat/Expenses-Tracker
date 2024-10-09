@@ -15,8 +15,8 @@ export default function Home() {
         btnFunc={SignupForm}
         showText={"Already have an account? "}
         loginSignupText={"Login"}
-        showMsg={"/login"}
-        /> 
+        showMsg={"/login"} 
+        fogotPassword={""}  /> 
     </>
   );
 }
