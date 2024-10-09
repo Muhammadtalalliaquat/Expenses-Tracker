@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 
 
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_apiKey,
+    apiKey: "AIzaSyC7pK4bURWr3Y8YGXlYGOxhEQGmBLuxLd4"
     authDomain: process.env.NEXT_PUBLIC_authDomain,
     projectId: process.env.NEXT_PUBLIC_projectId,
     storageBucket: process.env.NEXT_PUBLIC_storageBucket,
