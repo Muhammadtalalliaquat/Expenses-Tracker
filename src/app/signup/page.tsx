@@ -11,12 +11,12 @@ export default function Home() {
   return (
     <>
         <AuthForm 
-        btnLabel={"Signup"}
-        btnFunc={SignupForm}
-        showText={"Already have an account? "}
-        loginSignupText={"Login"}
-        showMsg={"/login"} 
-        fogotPassword={""}  /> 
+                          btnLabel={"Signup"}
+                          btnFunc={SignupForm}
+                          showText={"Already have an account? "}
+                          loginSignupText={"Login"}
+                          showMsg={"/login"} 
+                          fogotPassword={""}        /> 
     </>
   );
 }

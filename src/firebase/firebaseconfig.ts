@@ -10,7 +10,7 @@ const firebaseConfig = {
       messagingSenderId: process.env.NEXT_PUBLIC_messagingSenderId,
       appId: process.env.NEXT_PUBLIC_appId,
       measurementId: process.env.NEXT_PUBLIC_measurementId
-  };
-  
+
+}
   export const app = initializeApp(firebaseConfig);
 //   const analytics = getAnalytics(app);
