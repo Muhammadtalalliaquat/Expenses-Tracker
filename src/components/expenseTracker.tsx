@@ -14,7 +14,6 @@ export default function ExpenseForm() {
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
   const [optionaNote, setOptionaNote] = useState("");
-  // const [date setDate] = useState(new Date())
 
   const router = useRouter();
 
@@ -110,7 +109,6 @@ export default function ExpenseForm() {
                 role="button"
                 className="btn m-1"
                 value="Select Category"
-                // disabled
               >
                 Select Category
               </option>

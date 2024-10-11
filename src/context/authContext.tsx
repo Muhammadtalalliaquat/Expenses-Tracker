@@ -49,7 +49,7 @@ export function AuthFormContextProvider({children}:childrenType){
                 router.push("/signup");
         }
         });
-        } , [])
+        } , [router])
         
             
 

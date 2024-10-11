@@ -77,7 +77,6 @@ export default function AuthForm({
           <div className="main-container">
             <div className="container">
               <h1 className="h1-heedaing">{btnLabel}</h1>
-              {/* <br /> */}
 
               <form onSubmit={handleSubmit} className="form">
                 <label htmlFor="email">

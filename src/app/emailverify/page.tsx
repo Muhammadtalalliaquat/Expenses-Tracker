@@ -53,11 +53,7 @@ export default function emailVerification(){
                 detchOnAuthSateListner();
               }   
             }
-<<<<<<< HEAD
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-=======
           // eslint-disable-next-line react-hooks/exhaustive-deps
->>>>>>> ccf67ac3d3ab3c8738b38054b77db932fb9c03bb
       } ,[]);
 
       let readRealTimeListner: Unsubscribe; 
@@ -72,7 +68,6 @@ export default function emailVerification(){
         readRealTimeListner = onSnapshot(q, (UserSnapshot) => {
           UserSnapshot.docChanges().forEach((change) => {
             if (change.type === "added") {
-                // console.log("New city: ", change.doc.data());
             }
             if (change.doc.exists()) {
                 const userData = change.doc.data();
@@ -82,7 +77,6 @@ export default function emailVerification(){
                 }
             }
             if (change.type === "removed") {
-                // console.log("Removed city: ", change.doc.data());
             }
           });
         });
