@@ -26,10 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}> 
-        <AuthFormContextProvider>
-             {children}
-        </AuthFormContextProvider>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+          <AuthFormContextProvider>
+            {children}
+          </AuthFormContextProvider>
       </body>
     </html>
   );

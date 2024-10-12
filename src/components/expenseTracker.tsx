@@ -1,12 +1,11 @@
 "use client";
 
-import { auth, signOutUser } from "@/firebase/firebaseauth";
 import { saveExpense } from "@/firebase/firebasestore";
 import { useState } from "react";
 import styles from "./main.module.css";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { authContextData } from "@/context/authContext";
+import Navbar from "./navbarContext";
 
 
 export default function ExpenseForm() {
@@ -21,17 +20,6 @@ export default function ExpenseForm() {
     router.push("/expenseList");
   };
 
-  const { user } = authContextData()!;
-
-  const handleClick = () => {
-    if (user && user.uid) {
-      router.push(`/expenseList`);
-      console.log(user.uid);
-    } else {
-      alert("Please log in to view your expenses");
-    }
-  };
-
   if (isNaN(amount)) {
     console.log("enter amount", amount);
   }
@@ -40,22 +28,7 @@ export default function ExpenseForm() {
     <>
       <html style={{backgroundColor: "#eceff4"}}>
         <body data-theme={"nord"}>
-          <div className={styles.hearder}>
-            <h1 className={styles.h1}>Expense Tracker</h1>
-            <div className={styles.btn_div}>
-              <button onClick={handleClick} className="btn btn-outline">
-                Your Expense Data
-              </button>
-              <button
-                className="btn btn-outline"
-                onClick={() => {
-                  signOutUser(auth);
-                }}
-              >
-                Sigin Out
-              </button>
-            </div>
-          </div>
+          <Navbar />
 
           <div className={styles.second_div}>
             <form className={styles.form}>

@@ -11,8 +11,7 @@ import {
 import { useRouter } from "next/navigation";
 import { app } from "@/firebase/firebaseconfig";
 import styles from "../../../components/main.module.css";
-import { auth, signOutUser } from "@/firebase/firebaseauth";
-// import { saveExpense } from "@/firebase/firebasestore";
+import Navbar from "@/components/navbarContext";
 
 const db = getFirestore(app);
 
@@ -117,8 +116,9 @@ export default function aditExpneseData({
     <>
       <html style={{ backgroundColor: "#eceff4" }}>
         <body data-theme={"nord"}>
+        <Navbar />
           <div>
-            <div className={styles.hearder} data-theme={"nord"}>
+            {/* <div className={styles.hearder} data-theme={"nord"}>
               <h1 className={styles.h1}>Expense Tracker</h1>
               <button
                 className="btn btn-outline"
@@ -128,7 +128,7 @@ export default function aditExpneseData({
               >
                 Sigin Out
               </button>
-            </div>
+            </div> */}
             <div className={styles.second_div}>
               <form className={styles.form} action="">
                 <label htmlFor="Expense">
