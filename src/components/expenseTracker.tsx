@@ -43,7 +43,7 @@ export default function ExpenseForm({ router }: { router: AppRouterInstance }) {
         <body data-theme={"halloween"}>
           <Navbar /> 
           <br />
-          <h1 style={{fontWeight:  "bolder" , fontSize: "15px", marginLeft: "15px"}}>Add Expense</h1>
+          <h1 style={{fontWeight:  "bolder" , fontSize: "15px" , textAlign: "center"}}>Add Expense</h1>
           <br />
           <div className={styles.conatiner} >
           <div className="flex items-center flex-col">

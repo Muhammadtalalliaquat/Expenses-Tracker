@@ -130,7 +130,7 @@ export default function aditExpneseData({
         <body data-theme={"halloween"}>
           <Navbar />
           <br />
-          <h1 style={{fontWeight:  "bolder" , fontSize: "15px", marginLeft: "15px"}}>Edit Expense</h1>
+          <h1 style={{fontWeight:  "bolder" , fontSize: "15px", textAlign: "center"}}>Edit Expense</h1>
           <div className={styles.conatiner}>
           <div className="flex items-center flex-col">
             <form>

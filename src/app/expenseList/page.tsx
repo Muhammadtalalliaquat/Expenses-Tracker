@@ -235,7 +235,88 @@ export default function expenseListData() {
 
             <br />
 
-            <div className="overflow-x-auto">
+            <div
+              className="expense-cards-container"
+              style={{ width: "95%" , margin: "0 auto"}}
+            >
+              {sortedExpenses.length > 0 ? (
+                sortedExpenses.map(
+                  ({ title, amount, category, optionalNote, id }, index) => (
+                    <div
+                      key={id}
+                      className="expense-card"
+                      style={{
+                        backgroundColor: "#eceff4",
+                        border: "1px solid grey",
+                        borderRadius: "8px",
+                        marginBottom: "10px",
+                        padding: "15px",
+                        color: "black",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <h3 style={{ fontSize: "16px", fontWeight: "bold", color: "#e38109", paddingBottom: "10px" }}>
+                          {index + 1}. Title {title}
+                        </h3>
+                        <span style={{ color: "#418247", fontWeight: "bold" }}>
+                          ${amount}
+                        </span>
+                      </div>
+                      <div style={{ marginTop: "5px", fontSize: "14px" }}>
+                        <p>
+                          <strong>Category:</strong> {category}
+                        </p>
+                        <p style={{marginTop: "9px"}}>
+                          <strong>Note:</strong>{" "}
+                          {optionalNote || "No additional notes"}
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "end",
+                          gap: "6px",
+                          marginTop: "10px",
+                        }}
+                      >
+                        <Link href={`/editexpense/${id}`}>
+                          <button
+                            className="btn btn-outline btn-primary"
+                            style={{ fontSize: "12px" }}
+                          >
+                            Edit
+                          </button>
+                        </Link>
+                        <button
+                          onClick={() => delectExpenseList(id)}
+                          className="btn btn-outline btn-error"
+                          style={{ fontSize: "12px" }}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  )
+                )
+              ) : (
+                <div
+                  style={{
+                    textAlign: "center",
+                    padding: "20px",
+                    color: "#666",
+                  }}
+                >
+                  No expenses found for the selected category.
+                </div>
+              )}
+            </div>
+
+            {/* <div className="overflow-x-auto">
               <table
                 style={{
                   textAlign: "center",
@@ -301,7 +382,7 @@ export default function expenseListData() {
                   )}
                 </tbody>
               </table>
-            </div>
+            </div> */}
           </body>
         </html>
       )}
