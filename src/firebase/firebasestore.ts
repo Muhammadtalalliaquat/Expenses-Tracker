@@ -17,7 +17,7 @@ const db = getFirestore(app);
 type UserType = {
   email: string;
   uid: string;
-  emailVerified: boolean
+  emailVerified: boolean;
 };
 
 export default async function saveUser(user: UserType) {
@@ -33,7 +33,7 @@ export async function saveExpense(
   title: string,
   amount: number,
   category: string,
-  optionalNote: string,
+  optionalNote: string
 ) {
   const uid = auth.currentUser?.uid;
   const collectionRef = collection(db, "expenses");
@@ -70,10 +70,6 @@ export async function saveExpense(
 //     return allexpenses;
 // }
 
-
-
-
-
 export async function delectExpenseList(firebaseID: string) {
   try {
     const expenseRef = doc(db, "expenses", firebaseID);
@@ -88,47 +84,6 @@ export async function delectExpenseList(firebaseID: string) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { collection, doc, getDocs, getFirestore, query, setDoc, where } from "firebase/firestore";
-// import { app } from "./firebaseconfig";
-// import { auth } from "./firebaseauth";
-
-// const db = getFirestore(app);
-
-
-// type UserType = {
-//     email: string,
-//     emailVerified: boolean,
-//     uid: string
-// }
-
 // export default  async function dbUser(user: UserType){
 //     try{
 //         const docRef = doc(db , "users" , user.uid);
@@ -138,7 +93,6 @@ export async function delectExpenseList(firebaseID: string) {
 //         console.log(error)
 //     }
 // }
-
 
 // export async function fetchUser(){
 //     const collectionRef = collection(db , "todos");
@@ -153,7 +107,7 @@ export async function delectExpenseList(firebaseID: string) {
 
 //     const allUser = allUserSnapshot.docs.map((userSnapshot)=>{
 //         const userData = userSnapshot.data();
-//         userData.id = userSnapshot.id; 
+//         userData.id = userSnapshot.id;
 //         console.log(userData);
 //         return userData
 //     })

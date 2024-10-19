@@ -2,17 +2,36 @@
 
 import { authContextData } from "@/context/authContext";
 import { auth, signOutUser } from "@/firebase/firebaseauth";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
-export default function c() {
+export default function Navbar() {
   const { user } = authContextData()!;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
+  const pathname = usePathname();
 
-  const handleClick = () => {
-    if (user && user.uid) {
-      router.push(`/expenseList`);
-      console.log(user.uid);
+  
+  const handleNavigate = () => {
+    if (user) {
+      if (pathname === "/") {
+        router.push("/expenseList");
+      } else if (pathname === "/expenseList") {
+        router.push("/");
+      } else {
+        router.push("/");
+      }
+    } else {
+      alert("Please log in to view your expenses");
+    }
+  };
+
+  const expense_chart_Route = () => {
+    if (user) {
+      if (pathname === "/expense_chart") {
+        router.push("/expenseList");
+      } else {
+        router.push("/expense_chart");
+      }
     } else {
       alert("Please log in to view your expenses");
     }
@@ -20,7 +39,7 @@ export default function c() {
 
   return (
     <>
-      <div  data-theme={"nord"} className="navbar bg-base-100">
+      <div data-theme={"nord"} className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -48,12 +67,19 @@ export default function c() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a onClick={handleClick}>Your Expense Data</a>
-              </li>
-              {/* <li>
-                <a>Portfolio</a>
+                <a onClick={handleNavigate}>
+                  {pathname === "/" ? "Your Expense List" : "Add Expense"}
+                </a>
               </li>
               <li>
+                <a onClick={expense_chart_Route}>
+                  {pathname === "/expense_chart"
+                    ? "Your Expense List"
+                    : "Expense Graph"}
+                </a>
+              </li>
+
+              {/* <li>
                 <a>About</a>
               </li> */}
             </ul>

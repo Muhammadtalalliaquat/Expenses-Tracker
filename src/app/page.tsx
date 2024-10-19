@@ -1,14 +1,14 @@
-// "use client";
+"use client";
 
 import ExpenseForm from "@/components/expenseTracker";
-import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
 
-    
   return (
-    <>    
-      <ExpenseForm />
+    <>
+      <ExpenseForm router={router} />
     </>
   );
 }

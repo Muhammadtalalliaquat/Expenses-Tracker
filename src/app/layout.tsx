@@ -29,9 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <AuthFormContextProvider>
-            {children}
-          </AuthFormContextProvider>
+        <AuthFormContextProvider>
+             {children}
+        </AuthFormContextProvider>
       </body>
     </html>
   );

@@ -17,7 +17,7 @@ const config: Config = {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ["cupcake" , "nord", "light" , "halloween" , "corporate" , "forest" , "coffee"],
+    themes: ["cupcake" , "dim" , "nord", "light" , "halloween" , "dark" , "bussiness" , "corporate" , "forest" , "coffee"],
   },
 };
 export default config;

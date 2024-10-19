@@ -10,8 +10,8 @@ import {
 } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { app } from "@/firebase/firebaseconfig";
-import styles from "../../../components/main.module.css";
 import Navbar from "@/components/navbarContext";
+import styles from "../../../components/main.module.css"
 
 const db = getFirestore(app);
 
@@ -32,7 +32,7 @@ export default function aditExpneseData({
   const [expense, setExpense] = useState<ExpenseType | null>(null);
   // const [loading, setLoading] = useState(true);
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  // const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isSubmitting, setIsSubmitting] = useState(false);
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -44,11 +44,10 @@ export default function aditExpneseData({
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [optionalNote, setOptionalNote] = useState<string>("");
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [msgError, setMsgError] = useState<string | null>(null);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
 
-  if (isNaN(amount)) {
-    console.log("enter amount", amount);
-  }
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (id) {
@@ -65,11 +64,11 @@ export default function aditExpneseData({
             setOptionalNote(expenseData.optionalNote || "");
             console.log(expenseData);
           } else {
-            // setError("Expense not found");
-            console.log("Expense not found");
+            setError("Expense not found");
+            console.log(error, "Expense not found");
           }
         } catch (error) {
-          // setError("Failed to fetch expense");
+          setError("Failed to fetch expense");
           console.error(error, "Failed to fetch expense");
         } finally {
           // setLoading(false);
@@ -78,9 +77,22 @@ export default function aditExpneseData({
 
       fetchExpense();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   async function handleSubmit(e: React.FormEvent) {
+    if (!title || !amount || !category) {
+      setMsgError("Make sure to fill in all the necessary fields.");
+      console.log(msgError, "Error: All fields are required.");
+      return;
+    }
+
+    if (isNaN(Number(amount)) || Number(amount) <= 0) {
+      setError("Please enter a valid amount.");
+      console.log("Error: Invalid amount");
+      return;
+    }
+    setMsgError(null);
     e.preventDefault();
     setIsSubmitting(true);
     if (title && amount && category !== "Select" && optionalNote) {
@@ -114,147 +126,105 @@ export default function aditExpneseData({
 
   return (
     <>
-      <html style={{ backgroundColor: "#eceff4" }}>
-        <body data-theme={"nord"}>
-        <Navbar />
-          <div>
-            {/* <div className={styles.hearder} data-theme={"nord"}>
-              <h1 className={styles.h1}>Expense Tracker</h1>
-              <button
-                className="btn btn-outline"
-                onClick={() => {
-                  signOutUser(auth);
-                }}
-              >
-                Sigin Out
-              </button>
-            </div> */}
-            <div className={styles.second_div}>
-              <form className={styles.form} action="">
-                <label htmlFor="Expense">
-                  {" "}
-                  <br />
-                  Expense Name: <br />
-                  <input
-                    className={styles.input_filed}
-                    type="text"
-                    id="Expense"
-                    placeholder="Expense name"
-                    value={title}
-                    onChange={(e) => {
-                      setTitle(e.target.value);
-                    }}
-                    required
+      <html style={{ backgroundColor: "#212121" }}>
+        <body data-theme={"halloween"}>
+          <Navbar />
+          <br />
+          <h1 style={{fontWeight:  "bolder" , fontSize: "15px", marginLeft: "15px"}}>Edit Expense</h1>
+          <div className={styles.conatiner}>
+          <div className="flex items-center flex-col">
+            <form>
+              Title:{" "}
+              <label className="input input-bordered flex items-center gap-2">
+                <input
+                  type="text"
+                  className="grow"
+                  id="Expense"
+                  placeholder="Expense name"
+                  value={title}
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                  }}
+                  required
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="h-4 w-4 opacity-70"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                    clipRule="evenodd"
                   />
-                </label>
-
-                <label htmlFor="number">
-                  <br />
-                  Amount: <br />
-                  <input
-                    className={styles.input_filed}
-                    type="number"
-                    id="number"
-                    placeholder="Amount"
-                    value={amount}
-                    onChange={(e) => {
-                      setAmount(parseFloat(e.target.value));
-                    }}
-                    required
+                </svg>
+              </label>
+              <br />
+              Amount:{" "}
+              <label className="input input-bordered flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="h-4 w-4 opacity-70"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
+                    clipRule="evenodd"
                   />
-                </label>
-              </form>
+                </svg>
+                <input
+                  type="number"
+                  id="number"
+                  placeholder="Amount"
+                  value={amount}
+                  onChange={(e) => {
+                    setAmount(parseFloat(e.target.value));
+                  }}
+                  required
+                />
+              </label>
               <br />
-              <br />
+              Categories:
               <select
-                className="dropdown dropdown-right"
                 value={category}
                 onChange={(e) => {
                   setCategory(e.target.value);
                 }}
                 id="expense-category"
                 required
+                className="select select-bordered w-full max-w-xs"
               >
-                <option
-                  tabIndex={0}
-                  role="button"
-                  className="btn m-1"
-                  value="Select Category"
-                  disabled
-                >
+                <option value="" disabled>
                   Select Category
                 </option>
-                <option
-                  tabIndex={0}
-                  role="button"
-                  className="btn m-1"
-                  value="food"
-                >
-                  Food
-                </option>
-                <option
-                  tabIndex={0}
-                  role="button"
-                  className="btn m-1"
-                  value="Transport"
-                >
-                  Transport
-                </option>
-                <option
-                  tabIndex={0}
-                  role="button"
-                  className="btn m-1"
-                  value="Investments"
-                >
-                  Investments
-                </option>
-                <option
-                  tabIndex={0}
-                  role="button"
-                  className="btn m-1"
-                  value="education"
-                >
-                  Educations
-                </option>
-                <option
-                  tabIndex={0}
-                  role="button"
-                  className="btn m-1"
-                  value="luxuries"
-                >
-                  Luxuries
-                </option>
-                <option
-                  tabIndex={0}
-                  role="button"
-                  className="btn m-1"
-                  value="bills"
-                >
-                  Bills
-                </option>
-                <option
-                  tabIndex={0}
-                  role="button"
-                  className="btn m-1"
-                  value="Others"
-                >
-                  Other
-                </option>
+                <option value="food">Food</option>
+                <option value="Investments">Investments</option>
+                <option value="Transport">Transport</option>
+                <option value="education">Education</option>
+                <option value="luxuries">Luxuries</option>
+                <option value="bills">Bills</option>
+                <option value="rent">Rent</option>
+                <option value="Others">Others</option>
               </select>
               <br />
               <br />
-              Optional_note:
               <textarea
                 value={optionalNote}
                 onChange={(e) => {
                   setOptionalNote(e.target.value);
                 }}
                 id="optinal_note"
-                placeholder="Enter your note"
-              />
+                style={{ width: "100%" }}
+                className="textarea input-bordered"
+                placeholder="Optional_Note"
+              ></textarea>
               <br />
               <br />
               <button
+                style={{ width: "100%" }}
                 onClick={handleSubmit}
                 className="btn btn-outline"
                 type="submit"
@@ -262,7 +232,8 @@ export default function aditExpneseData({
               >
                 {isSubmitting ? "Saving..." : "Save Expense"}
               </button>
-            </div>
+            </form>
+          </div>
           </div>
         </body>
       </html>
