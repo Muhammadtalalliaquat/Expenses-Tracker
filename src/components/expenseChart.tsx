@@ -8,6 +8,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import styles from "../components/main.module.css"
 
 
 type ExpenseChartData = {
@@ -21,7 +22,7 @@ type ExpenseChartProps = {
 export default function ExpenseChart({ expenseChartData }: ExpenseChartProps) {
   return (
     <>
-      <div className="flex items-center flex-col">
+      <div className={styles.chartContainer}>
         <AreaChart
           width={430}
           height={250}
