@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-Your link is here: [ https://expenses-tracker-bay-xi.vercel.app/ ]
+The expense app link is here: [ https://expenses-tracker-bay-xi.vercel.app/ ]
 
 First, run the development server:
 
