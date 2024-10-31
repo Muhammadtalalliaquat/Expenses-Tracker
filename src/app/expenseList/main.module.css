@@ -1,0 +1,33 @@
+.expense_cards_container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; 
+    width: 100%; 
+    max-width: 1300px;
+    margin: 0 auto; 
+  }
+  
+  .expense_card {
+    width: 32%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .expense_card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+  @media only screen and (max-width: 700px) {
+    .expense_cards_container {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+    }
+    .expense_card {
+        width: 100%;
+        margin: 10px auto;
+      }
+  }
+ 
+  

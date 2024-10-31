@@ -6,6 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import React from "react";
 import Navbar from "./../../components/navbarContext";
+import styles from "../expenseList/main.module.css"
 
 import {
   collection,
@@ -196,7 +197,7 @@ export default function expenseListData() {
                 Total Amount{" "}
               </p>
               <strong style={{ padding: "5px" }}>
-                {totalAmount.toFixed(2)}
+                ${totalAmount.toFixed(2)}
               </strong>
             </div>
             <br />
@@ -235,16 +236,15 @@ export default function expenseListData() {
 
             <br />
 
-            <div
-              className="expense-cards-container"
-              style={{ width: "95%" , margin: "0 auto"}}
+            <div 
+              className={styles.expense_cards_container}
             >
               {sortedExpenses.length > 0 ? (
                 sortedExpenses.map(
                   ({ title, amount, category, optionalNote, id }, index) => (
                     <div
                       key={id}
-                      className="expense-card"
+                      className={styles.expense_card}
                       style={{
                         backgroundColor: "#eceff4",
                         border: "1px solid grey",
@@ -252,6 +252,7 @@ export default function expenseListData() {
                         marginBottom: "10px",
                         padding: "15px",
                         color: "black",
+                        // width: "32%"
                       }}
                     >
                       <div

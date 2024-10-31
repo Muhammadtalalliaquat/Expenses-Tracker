@@ -56,7 +56,7 @@ export default function aditExpneseData({
           const expenseRef = doc(db, "expenses", id as string);
           const expenseSnap = await getDoc(expenseRef);
           if (expenseSnap.exists()) {
-            const expenseData = expenseSnap.data() as ExpenseType;
+            const expenseData = expenseSnap.data() as ExpenseType; 
             setExpense(expenseData);
             setTitle(expenseData.title);
             setAmount(expenseData.amount);

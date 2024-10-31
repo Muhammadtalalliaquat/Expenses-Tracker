@@ -77,7 +77,7 @@ export default function Navbar() {
                     ? "Your Expense List"
                     : "Expense Graph"}
                 </a>
-              </li>
+              </li> 
 
               {/* <li>
                 <a>About</a>

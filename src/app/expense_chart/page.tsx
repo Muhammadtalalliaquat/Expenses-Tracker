@@ -31,7 +31,7 @@ type userType = {
 
 export default function expenseChartFetchData() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [chartData, setChartData] = useState<{ name: string; uv: number }[]>(
+  const [chartData, setChartData] = useState<{ name: string; value: number }[]>(
     []
   );
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -59,7 +59,7 @@ export default function expenseChartFetchData() {
 
         const formattedData = expenses.map((expense) => ({
           name: expense.category || "Unknown",
-          uv: parseFloat(expense.amount) || 0,
+          value: parseFloat(expense.amount) || 0,
         }));
 
         setChartData(formattedData);
